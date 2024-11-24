@@ -24,7 +24,7 @@ nav {
     text-align: center;
 }
 nav ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 nav ul li {
@@ -53,11 +53,19 @@ nav ul li a {
     
 }
 .services ul{
-    list-style: none;
+    list-style:circle;
+}
+.contact-form{
+    margin: 0 auto;
+    height: auto;
+    width: 500px;
 }
 form input, form textarea {
     padding: 10px;
     margin-bottom: 10px;
+    width: 100%;
+    margin-left: 20px;
+
 }
 form button {
     background-color: #333;
@@ -65,6 +73,7 @@ form button {
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    margin:20px;
 }
 
 footer {
@@ -75,4 +84,10 @@ footer {
     padding: 1rem;
     position:relative;
     bottom: 0;
+}
+h3{
+    text-align: center;
+}
+details{
+    margin-left: 20px;
 }
