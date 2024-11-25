@@ -107,9 +107,11 @@ form button:hover{
 }
 
 footer {
-    background-color: rgb(96, 96, 57);
+    background-color: rgba(21, 76, 228, 0.536);
     color: #fff;
-    font-family: fantasy;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
     text-align: center;
     padding: 1rem;
     position:relative;
@@ -122,7 +124,7 @@ details{
     margin-left: 20px;
 }
 .usluga{
-    width:1000px;
+    width:1000px;   
     margin: auto;
     overflow: hidden;
     padding: 20px;
@@ -134,3 +136,41 @@ details{
     
 
 }
+.carousel-image {
+    height: 300px; 
+  }
+  
+
+  .proud{
+    width: 800px;
+    background-color: rgba(128, 128, 128, 0.219);
+    height: 1000px;
+   
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+ 
+
+  }
+  .proud h3{
+    text-align: center;
+    padding: 30px;
+  }
+  .item-1{
+    background-color: rgba(255, 255, 255, 0.774);
+    width: 200px;
+    height: 300px;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+  }
+  .containr-items{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 700px;
+    margin: 0 auto;
+
+  }
