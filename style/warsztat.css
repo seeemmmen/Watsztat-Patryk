@@ -114,8 +114,9 @@ footer {
     font-style: normal;
     text-align: center;
     padding: 1rem;
-    position:relative;
+    position: relative;
     bottom: 0;
+    width: 100%
 }
 h3{
     text-align: center;
@@ -144,7 +145,7 @@ details{
   .proud{
     width: 800px;
     background-color: rgba(128, 128, 128, 0.219);
-    height: 800px;
+    height: 1700px;
    
     margin: 0 auto;
     margin-top: 50px;
@@ -160,17 +161,19 @@ details{
   }
   .item-1{
     background-color: rgba(255, 255, 255, 0.774);
-    width: 200px;
-    height: 300px;
+    width: 300px;
+    height: 500px;
     align-items: center;
     text-align: center;
     padding: 30px;
     border: 1px solid lightskyblue;
     border-radius: 10px;
+    
   }
   .item-1 img{
-    width:100%;
-    height: 100%;
+    width: 170px;
+    height: 170px;
+    border-radius: 100%;
 
   }
   .containr-items{
@@ -179,7 +182,8 @@ details{
     gap: 30px;
     justify-content: center;
     flex-wrap: wrap;
-    width: 700px;
+    width: 800px;
+    height: 800px;
     margin: 0 auto;
     
 
