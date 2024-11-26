@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: url("/img/header-back.webp") fixed 0 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav {
+    background-color: rgba(21, 76, 228, 0.536);
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 70px;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.5s;
+    display: inline-block;
+}
+nav ul li a:hover
+{   color: orange;
+    transform: scale(1.3);
+}
+.main{
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 30px;
+    padding: 20px;
+
+    
+    
+}
+.punkt{
+    width:800px;
+    height: 300px;
+    background-color: lightslategray;
+    border: 3px black solid;
+    border-radius: 10px;
+    color: aliceblue;
+    margin-top: 30px;
+    padding-top: 30px;
+    transition: 0.5s;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.punkt h2{
+    font-family: monospace;
+}
+.punkt p{
+    font-family: inherit;
+}
+footer {
+    background-color: rgba(21, 76, 228, 0.536);
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    text-align: center;
+    padding: 1rem;
+    position:relative;
+    bottom: 0;
+    margin-top: 20px;
+}
+.punkt:hover{
+    transform: scale(1.3);
+}
