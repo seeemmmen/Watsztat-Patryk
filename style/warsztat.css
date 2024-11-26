@@ -43,7 +43,7 @@ nav ul li a:hover
     transform: scale(1.3);
 }
 .welcome {
-    width:500px;
+    width:600px;
     margin: auto;
     overflow: hidden;
     padding: 20px;
@@ -144,11 +144,13 @@ details{
   .proud{
     width: 800px;
     background-color: rgba(128, 128, 128, 0.219);
-    height: 1000px;
+    height: 800px;
    
     margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 50px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 20px;
  
 
   }
@@ -163,6 +165,13 @@ details{
     align-items: center;
     text-align: center;
     padding: 30px;
+    border: 1px solid lightskyblue;
+    border-radius: 10px;
+  }
+  .item-1 img{
+    width:100%;
+    height: 100%;
+
   }
   .containr-items{
     display: flex;
@@ -172,5 +181,6 @@ details{
     flex-wrap: wrap;
     width: 700px;
     margin: 0 auto;
+    
 
   }
