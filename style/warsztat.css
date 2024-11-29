@@ -53,6 +53,11 @@ nav ul li a:hover
     font-weight: 300;
     font-style: normal;
 }
+.faq{
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
 .services {
     background-color: #fff;
     border-radius: 5px;
@@ -145,16 +150,20 @@ details{
   .proud{
     width: 800px;
     background-color: rgba(128, 128, 128, 0.219);
-    height: 1700px;
+    height: 1800px;
    
     margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 50px;
     border: 2px solid rgb(255, 255, 255);
     border-radius: 20px;
- 
+    margin-top: 150px;
 
   }
+  .checked {
+    color: orange;
+  }
+
   .proud h3{
     text-align: center;
     padding: 30px;
@@ -162,20 +171,37 @@ details{
   .item-1{
     background-color: rgba(255, 255, 255, 0.774);
     width: 300px;
-    height: 500px;
     align-items: center;
     text-align: center;
     padding: 30px;
     border: 1px solid lightskyblue;
     border-radius: 10px;
+    transition: all 0.3s ease-in-out;
     
   }
   .item-1 img{
     width: 170px;
     height: 170px;
+    object-fit:cover; 
     border-radius: 100%;
 
   }
+  .item-1 ul{
+    padding-left: 0px;
+    font-size: 14px;
+    margin-top: 10px;
+    list-style:circle;
+    
+  }
+  .item-1 h3{
+    padding: 0px;
+   
+  }
+  .containr-items .item-1:hover {
+    box-shadow: -1px 8px 24px 0px rgba(66, 68, 90, 1);
+    transform: scale(1.05); /* Лёгкое увеличение элемента */
+    transition: all 0.3s ease-in-out; /* Плавный переход для эффекта */
+}
   .containr-items{
     display: flex;
     flex-direction: row;
