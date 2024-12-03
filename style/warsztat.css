@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 .header {
   background: linear-gradient(to right, #3498db, #2c3e50);
   color: #fff;
@@ -382,6 +383,7 @@ details{
 }
 @media screen and (max-width: 767px) {
   .welcome{
+    margin-top: 40px;
     max-width: 100%;
     margin-right: 0;
     margin-left: 0;
