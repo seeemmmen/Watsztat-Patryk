@@ -128,6 +128,7 @@ footer {
     font-size: 16px;
     cursor: pointer;
     transition: 1.2s;
+    text-decoration: none;
 }
 .appointment-btn:hover{
     transform: scale(1.2);

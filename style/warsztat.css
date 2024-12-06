@@ -2,6 +2,13 @@
     margin: 0;
     padding: 0;
 }
+.naglowek{
+  text-align: center;
+  color: #3498db;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: xx-large;
+  margin-top: 20px;
+}
 
 .header {
   background: linear-gradient(to right, #3498db, #2c3e50);
@@ -347,6 +354,46 @@ details{
 .price-table tr:hover {
     background-color: #e8f4f8;
     transition: background-color 0.3s ease;
+}
+.forma{
+  
+}
+.forma-btn{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+}
+.map-iframe{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.appointment-btn{
+  margin-top: 15px;
+  width: 250px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 40px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 1.2s;
+  text-decoration: none;
+}
+.appointment-btn:hover{
+  transform: scale(1.2);
+  background-color: aquamarine;
+  color: orange
 }
 
 @media (max-width: 600px) {

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="enw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forma</title>
+    <link rel="stylesheet" href="/style/warsztat.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Warsztat "Szybki kolasa"</div>
+            <button class="mobile-menu-btn">☰</button>
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="/index.html">Głowna</a></li>
+            <li><a href="cennik.html">Cennik</a></li>
+            <li><a href="onas.html">O nas</a></li>
+            <li><a href="contact.html">Informacja kontaktowa</a></li> 
+        </ul>
+    </nav>
+    </div>
+    </header>
+    <form class="container mt-4" id="userInfoForm" method="post">
+        
+        <!-- Sekcja imienia i nazwiska -->
+        <div class="form-group">
+            <label for = "inputName">Wpisz imie i nazwisko</label>
+            <input type="text" aria-label="First name" class="form-control" id="firstname">
+            <input type="text" aria-label="Last name" class="form-control" id="lastname">
+        </div>
+        
+        <!-- Sekcja adresu -->
+        <div class="form-group">
+          <label for="inputContact">Numer telefonu lub email</label>
+          <input type="text" class="form-control" id="inputContact" placeholder="Dane kontaktowe">
+        </div>
+
+        
+    
+        <!-- Checkbox zgody -->
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Zgadzam się na opracowanie moich dannych</label>
+        </div>
+
+        <!-- Sekcja do wpisania tekstu -->
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Opisz problem</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        
+        <!-- Przycisk do zapisania formularza -->
+        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Zapisz</button>
+
+    </form>
+    <div class="map-iframe">
+        <!-- Wstawienie Google Maps -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8323.93871663141!2d20.622298448788932!3d50.868589187458085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47178818af891105%3A0x5025d8b8c0cdcdf3!2z0JrQtdC70YzRhtC1!5e0!3m2!1sru!2spl!4v1726689708257!5m2!1sru!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    <script>
+        document.getElementById("userInfoForm").addEventListener("submit", async function (event) {
+            event.preventDefault(); // Отключаем перезагрузку страницы
+
+            const formData = new FormData(this);
+            const responseElement = document.getElementById("formResponse");
+            responseElement.style.display = "none";
+
+            try {
+                const response = await fetch("/send", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(Object.fromEntries(formData.entries())),
+                });
+
+                if (response.ok) {
+                    responseElement.style.display = "block";
+                    responseElement.textContent = "Formularz został wysłany pomyślnie!";
+                    responseElement.style.color = "green";
+                } else {
+                    throw new Error("Błąd serwera");
+                }
+            } catch (error) {
+                responseElement.style.display = "block";
+                responseElement.textContent = "Wystąpił błąd podczas wysyłania formularza.";
+                responseElement.style.color = "red";
+            }
+        });
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+        document.querySelector('.nav-menu').classList.toggle('active');
+    });
+    </script>
+    
+
+    <footer>
+        <p>&copy; 2023 Warsztat samochodowy „Szybki kolasa”. Wszelkie prawa zastrzeżone.</p>
+    </footer>
