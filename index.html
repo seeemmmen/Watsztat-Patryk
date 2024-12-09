@@ -226,9 +226,9 @@
         <span class="close">&times;</span>
         <h2>Rejestracja</h2>
         <form id="registration-form">
-            <input type="text" id="username" placeholder="Nazwa użytkownika" required>
-            <input type="email" id="email" placeholder="Twój email" required>
-            <input type="password" id="password" placeholder="Hasło" required>
+            <input type="text" id="username-reg" placeholder="Nazwa użytkownika" required>
+            <input type="email" id="email-reg" placeholder="Twój email" required>
+            <input type="password" id="password-reg" placeholder="Hasło" required>
             <button type="submit">Zarejestruj się</button>
         </form>
         <p id="responseMessage"></p>
@@ -252,55 +252,151 @@
     <p>&copy; 2023 Warsztat samochodowy „Szybki kolasa”. Wszelkie prawa zastrzeżone.</p>
     <a href = "./sites/regulamin.html" class="regulamin">Regulamin</a>
 </footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("registration-form");
-   // Sprawdzenie, czy formularz istnieje
-  if (!form) {
-    console.error("Форма не найдена!");
-    return;
-  }
- // Obsługa zdarzenia "submit" dla formularza rejestracji
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();// Zatrzymanie domyślnego zachowania formularza
+    $(document).ready(function() {
+    // Открытие окна логина
+    $("#open").click(function() {
+        $("#loginModal").fadeIn();
+    });
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const email = document.getElementById("email").value;
+    // Закрытие модального окна
+    $(".close").click(function() {
+        $(this).closest('.modal').fadeOut();
+    });
 
-    try {
-      // Wysłanie danych rejestracji na serwer
-      const response = await fetch("/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password ,email}),
-      });
+    // Показать форму регистрации
+    $("#show-register").click(function(e) {
+        e.preventDefault();
+        $("#loginModal").fadeOut(function() {
+            $("#registrationModal").fadeIn();
+        });
+    });
 
-      const result = await response.json();
-      // Wyświetlenie komunikatu odpowiedzi
-      document.getElementById("responseMessage").textContent = result.message+" "+ username;
-      console.log(password);
-      form.reset(); // Resetowanie formularza
+    // Показать форму логина
+    $("#show-login").click(function(e) {
+        e.preventDefault();
+        $("#registrationModal").fadeOut(function() {
+            $("#loginModal").fadeIn();
+        });
+    });
+
+    // Обработка логина
+    $("#login-form").submit(function(event) {
+        event.preventDefault();
+        const username = $("#login-username").val();
+        const password = $("#login-password").val();
+
+        // AJAX-запрос для логина
       
-    } catch (error) {
-      console.error("Ошибка:", error);
-      document.getElementById("responseMessage").textContent = "Błąd";
-    }
-  });
+    });
+
+    // Обработка регистрации
+    $("#registration-form").submit(function(event) {
+        event.preventDefault();
+        const username = $("#username").val();
+        const email = $("#email").val();
+        const password = $("#password").val();
+
+        // AJAX-запрос для регистрации
+        
+    });
 });
+$(document).ready(function () {
+    // Обработка отправки формы логина
+    $("#login-form").submit(function (event) {
+        event.preventDefault();
+
+        const username = $("#login-username").val();
+        const password = $("#login-password").val();
+
+        // Отправка данных на сервер
+        $.ajax({
+            url: "/login", // URL маршрута логина
+            method: "POST", // Метод HTTP
+            contentType: "application/json", // Тип данных
+            data: JSON.stringify({ username, password }), // Отправляемые данные
+            success: function (response) {
+                // Обработка успешного ответа
+                $("#login-responseMessage").text(response.message).css("color", "green");
+                // Закрытие модального окна логина
+                $("#loginModal").fadeOut();
+            },
+            error: function (xhr) {
+                // Обработка ошибки
+                const errorMessage = xhr.responseJSON?.error || "Błąd";
+                $("#login-responseMessage").text(errorMessage).css("color", "red");
+            },
+        });
+    });
+});
+
+   
+$("#registration-form").submit(function (event) {
+    event.preventDefault();
+
+    const username = $("#username-reg").val().trim();
+    const email = $("#email-reg").val().trim();
+    const password = $("#password-reg").val().trim();
+
+    if (!username || !email || !password) {
+        $("#responseMessage").text("Все поля обязательны!").css("color", "red");
+        return;
+    }
+
+    $.ajax({
+        url: "/register",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({ username, email, password }),
+        success: function (response) {
+            $("#responseMessage").text(response).css("color", "green");
+            $("#registrationModal").fadeOut(function () {
+                $("#loginModal").fadeIn();
+            });
+        },
+        error: function (xhr) {
+            const errorMessage = xhr.responseJSON?.message || "Произошла ошибка.";
+            $("#responseMessage").text(errorMessage).css("color", "red");
+        },
+    });
+});
+
+
 // Obsługa logowania w wersji desktopowej
 
-document.getElementById("open").addEventListener("click", function() {
-    document.getElementById("regestration").classList.remove("regestration");
+  document.getElementById("contactForm").addEventListener("submit", async function (event) {
+        event.preventDefault(); // Отключаем перезагрузку страницы
 
-  });
+        const formData = new FormData(this);
+        const responseElement = document.getElementById("formResponse");
+        responseElement.style.display = "none";
+
+        try {
+            const response = await fetch("/send", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(Object.fromEntries(formData.entries())),
+            });
+
+            if (response.ok) {
+                responseElement.style.display = "block";
+                responseElement.textContent = "Wiadomość została wysłana pomyślnie!";
+                responseElement.style.color = "green";
+            } else {
+                throw new Error("Błąd serwera");
+            }
+        } catch (error) {
+            responseElement.style.display = "block";
+            responseElement.textContent = "Wystąpił błąd podczas wysyłania wiadomości.";
+            responseElement.style.color = "red";
+        }
+    });
 
 </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="jquary.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
