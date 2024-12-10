@@ -65,7 +65,7 @@
             <p style="margin-top: 40px;">To możesz zrobić już dziś jednym kliknięciem!</p>
         </div>
     </div>
-    <div class="sidebar right">
+    <aside class="sidebar right">
         <div class="timeline">
             <h3>Nasza Historia</h3>
             <div class="timeline-item">
@@ -81,8 +81,9 @@
                 <p>Modernizacja sprzętu</p>
             </div>
         </div>
-    </div>
-    <div class="sidebar left">
+    </aside>
+    <button class="sidebar-toggle right" onclick="toggleSidebar('right')">&#9664;</button>
+    <aside class="sidebar left">
         <div class="contact-info">
             <h3>Kontakt</h3>
             <p>Tel: +48 123 456 789</p>
@@ -94,7 +95,8 @@
             <a href="" class="social-icon"><img src="/img/instagram.png" alt="Instagram"></a>
             <a href="" class="social-icon"><img src="/img/twitter.png" alt="Twitter"></a>
         </div>
-    </div>
+    </aside>
+    <button class="sidebar-toggle left" onclick="toggleSidebar('left')">&#9664;</button>
     <footer>
         <p>&copy; 2023 Warsztat samochodowy „Szybki kolasa”. Wszelkie prawa zastrzeżone.</p>
         <a href = "regulamin.html" class="regulamin">Regulamin</a>
@@ -104,6 +106,14 @@
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
         });
+
+        document.querySelector('.sidebar-toggle.left').addEventListener('click', function() {
+            document.querySelector('.sidebar.left').classList.toggle('active');
+        });
+        document.querySelector('.sidebar-toggle.right').addEventListener('click', function() {
+            document.querySelector('.sidebar.right').classList.toggle('active');
+        });
+        
     </script>
 </body>
 </html>

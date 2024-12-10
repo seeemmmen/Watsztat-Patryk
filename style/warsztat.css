@@ -71,6 +71,9 @@
   .nav-menu.active {
       display: flex;
   }
+  .welcome.active{
+    margin-top: 15em;
+  }
   .nav-menu li {
       margin: 0.5rem 0;
   }

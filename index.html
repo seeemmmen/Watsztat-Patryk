@@ -255,6 +255,11 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
+     document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+            document.querySelector('.welcome').classList.toggle('active');
+
+        });
     $(document).ready(function() {
     // Открытие окна логина
     $("#open").click(function() {
