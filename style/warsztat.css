@@ -197,6 +197,18 @@ footer {
     bottom: 0;
     width: 100%
 }
+.footer-cennik {
+  background: linear-gradient(to right, #3498db, #2c3e50);
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    text-align: center;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%
+}
 h3{
     text-align: center;
 }
