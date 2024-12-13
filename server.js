@@ -9,7 +9,7 @@ const app = express();
 const PORT = 3000;
 
 // Подключение к MongoDB
-mongoose.connect("mongodb+srv://seeemmmen:Parol2017@web.omhac.mongodb.net/?retryWrites=true&w=majority&appName=Web");
+mongoose.connect("mongodb+srv://seeemmmen:Parol2017@cluster0.y8ytq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 
 // Definicja schematu użytkownika
 const userSchema = new mongoose.Schema({
